@@ -1,2 +1,31 @@
-# text-forge-python
-Python support for Text Forge code editor
+# Text Forge GDScript mode
+Python mode for Text Forge code editor
+
+---
+
+Python Mode is a lightweight and functional mode for Text Forge code editor. It **isn't** a part of official Text Forge modes.
+
+## Mode Features
+- Updated to [Text Forge Mode API V2.0](https://github.com/text-forge/text-forge/pull/71)
+- Outline system with main functions (detects `def` keywords)
+- Special code highlighter
+- Simple code completion with keywords
+- Linter is in progress ⚠️
+- Experimental run feature ⚠️
+
+## Setup
+Supports Text Forge 0.1-stable and newer versions.
+
+### Method 1: From releases
+- Download `python.tfmode` file from releases. 
+- Open Text Forge and go to Settings > Mode Manager > Import Mode and select kit file. 
+- Mode kit is ready to use. Please restart editor for safer experience.
+
+### Method 2: From repo
+- Download repo as zip and extract it. 
+- Open editor data folder (use Settings > Open Data Folder) 
+- Copy `modes/` folder content to data `modes/`.
+- Restart editor.
+
+### Development
+This project is one of mahan khalili's projects ([@mkh-user](https://github.com/mkh-user)) but all contribution and development process is same as Text Forge project, for more information see [online docs](https://text-forge.github.io/docs). 
