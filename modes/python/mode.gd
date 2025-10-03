@@ -1,17 +1,17 @@
 extends TextForgeMode
 
 var keyword_colors: Dictionary[Color, Array] = {
-	Color(1, 0.45, 0.55, 1): ["def", "class", "lambda", "return", "yield", "try", "except", "finally", "raise"],
-	Color(1, 0.6, 0.85, 1): ["if", "elif", "else", "for", "while", "break", "continue", "pass", "with", "as", "assert"],
-	Color(1, 0.7, 0.5, 1): ["import", "from", "global", "nonlocal", "del", "and", "or", "not", "in", "is"],
-	Color(0.9, 0.8, 0.6, 1): ["True", "False", "None"],
+	U.get_syntax_color(U.SyntaxColors.KEYWORD_1): ["def", "class", "lambda", "return", "yield", "try", "except", "finally", "raise"],
+	U.get_syntax_color(U.SyntaxColors.KEYWORD_2): ["if", "elif", "else", "for", "while", "break", "continue", "pass", "with", "as", "assert"],
+	U.get_syntax_color(U.SyntaxColors.KEYWORD_3): ["import", "from", "global", "nonlocal", "del", "and", "or", "not", "in", "is"],
+	U.get_syntax_color(U.SyntaxColors.BUILTIN): ["True", "False", "None"],
 }
 var code_regions: Array[Array] = [
-	[Color(1, 0.91, 0.64, 1), '"', '"', false],
-	[Color(1, 0.92, 0.64, 1), "'", "'", false],
-	[Color(1, 0.92, 0.65, 1), "'''", "'''", false],
-	[Color(1, 0.91, 0.65, 1), '"""', '"""', false],
-	[Color(0.8, 0.81, 0.82, 0.5), "#", "", true],
+	[U.get_syntax_color(U.SyntaxColors.STRING), '"', '"', false],
+	[U.get_syntax_color(U.SyntaxColors.STRING), "'", "'", false],
+	[U.get_syntax_color(U.SyntaxColors.STRING), "'''", "'''", false],
+	[U.get_syntax_color(U.SyntaxColors.STRING), '"""', '"""', false],
+	[U.get_syntax_color(U.SyntaxColors.COMMENT), "#", "", true],
 ]
 
 func _initialize_mode() -> Error:
@@ -94,10 +94,10 @@ func _lint_file(text: String) -> Array[Dictionary]:
 
 func _initialize_highlighter() -> void:
 	syntax_highlighter = CodeHighlighter.new()
-	syntax_highlighter.number_color = Color(0.85, 1, 0.7, 1)
-	syntax_highlighter.symbol_color = Color(0.7, 0.8, 1, 1)
-	syntax_highlighter.function_color = Color(0.35, 0.7, 1, 1)
-	syntax_highlighter.member_variable_color = Color(0.8, 0.85, 1, 1)
+	syntax_highlighter.number_color = U.get_syntax_color(U.SyntaxColors.NUMBER)
+	syntax_highlighter.symbol_color = U.get_syntax_color(U.SyntaxColors.SYMBOL)
+	syntax_highlighter.function_color = U.get_syntax_color(U.SyntaxColors.FUNCTION)
+	syntax_highlighter.member_variable_color = U.get_syntax_color(U.SyntaxColors.MEMBER)
 	for color in keyword_colors:
 		for keyword in keyword_colors[color]:
 			syntax_highlighter.add_keyword_color(keyword, color)
