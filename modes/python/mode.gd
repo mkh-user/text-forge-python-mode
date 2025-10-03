@@ -16,7 +16,7 @@ var code_regions: Array[Array] = [
 
 func _initialize_mode() -> Error:
 	_initialize_highlighter()
-	_setup_panel()
+	panel = U.load_resource("user://modes/python/panel.tscn").instantiate()
 	comment_delimiters.append({
 		"start_key": "#",
 		"end_key": "",
@@ -105,23 +105,3 @@ func _initialize_highlighter() -> void:
 	for region in code_regions:
 		syntax_highlighter.add_color_region(region[1], region[2], region[0], region[3])
 
-
-func _setup_panel() -> void:
-	panel = TextForgePanel.new()
-	var run = Button.new()
-	var output = TextEdit.new()
-	panel.add_child(VBoxContainer.new())
-	panel.get_child(0).size = Vector2(100, 300)
-	panel.get_child(0).add_child(run)
-	panel.get_child(0).add_child(output)
-	run.size_flags_horizontal = Control.SIZE_FILL
-	output.size_flags_horizontal = Control.SIZE_FILL
-	output.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	run.text = "Run Code"
-	run.pressed.connect(_execute.bind(output))
-
-
-func _execute(output) -> void:
-	var out: Array
-	OS.execute("python", [Global.get_file_path()], out)
-	output.text = "\n---\n".join(out)
