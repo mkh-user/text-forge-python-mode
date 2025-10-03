@@ -83,7 +83,7 @@ func _generate_outline(text: String) -> Array:
 	for l in text.split("\n").size():
 		var line := text.split("\n")[l]
 		if line.begins_with("def "):
-			outline.append([line.substr(5, line.find("(") - 5),l])
+			outline.append([line.substr(4, line.find("(") - 4),l])
 	return outline
 
 
