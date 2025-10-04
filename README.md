@@ -3,7 +3,7 @@ Python mode for Text Forge code editor
 
 ---
 
-Python Mode is a lightweight and functional mode for Text Forge code editor. It **isn't** a part of official Text Forge modes.
+Python Mode is a lightweight and functional mode for Text Forge code editor. It's a part of official Text Forge modes.
 
 ## Mode Features
 - Updated to [Text Forge Mode API V2.0](https://github.com/text-forge/text-forge/pull/71)
@@ -28,4 +28,4 @@ Supports Text Forge 0.1-stable and newer versions.
 - Restart editor.
 
 ### Development
-This project is one of mahan khalili's projects ([@mkh-user](https://github.com/mkh-user)) but all contribution and development process is same as Text Forge project, for more information see [online docs](https://text-forge.github.io/docs). 
+This project is under Text Forge organization and MIT license, so all contribution and development process is same as Text Forge project, for more information see [online docs](https://text-forge.github.io/docs). 
