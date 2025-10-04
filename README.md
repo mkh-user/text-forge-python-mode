@@ -1,5 +1,5 @@
 # Text Forge GDScript mode
-Python mode for Text Forge code editor
+Official Python mode for Text Forge code editor
 
 ---
 
